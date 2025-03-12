@@ -36,7 +36,24 @@ function addRiskItem(riskName, riskLevel, department) {
     riskCard.appendChild(departmentElement)
     //new card to dashboard
     document.getElementById(`riskDashboard`).appendChild(riskCard)
+
+    
+//-----------------------------------------------------------------//
+//Task 3
+    //Resolve button                                                
+    const resolveButton = document.createElement(`button`)
+    resolveButton.textContent = `Resolve`
+    resolveButton.addEventListener(`click`,function(event) {
+    event.stopPropagation()          
+    document.getElementById(`riskDashboard`).removeChild(riskCard)           
+})
+    //Append resolve button
+    riskCard.appendChild(resolveButton)
 }
+    //Test Case (Task 3)
+    addRiskItem("Market Fluctuations", "High", "Finance")           
+//-----------------------------------------------------------------//
+
 
     //Inputting new risk to form
     const riskForm = document.getElementById(`riskForm`)
