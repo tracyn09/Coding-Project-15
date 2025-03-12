@@ -11,8 +11,21 @@ function addRiskItem(riskName, riskLevel, department) {
     const riskCard = document.createElement (`div`)         
     riskCard.classList.add(`riskCard`)
 
+
+//----------------------------------------------------------------//
+//Task 4
+    //Designating background colors to risk levels
+    if (riskLevel === 'Low') {
+        riskCard.style.backgroundColor = 'green' 
+    } else if (riskLevel === 'Medium') {
+        riskCard.style.backgroundColor = 'yellow' 
+    } else if (riskLevel === 'High') {
+        riskCard.style.backgroundColor = 'red'
+    }
+//-----------------------------------------------------------------//
+
+
     //Risk card style
-    riskCard.style.backgroundColor = "white"
     riskCard.style.padding = "15px"
     riskCard.style.margin = "10px 0"                        
     riskCard.style.border = "1px solid lightgray"
@@ -37,7 +50,7 @@ function addRiskItem(riskName, riskLevel, department) {
     //new card to dashboard
     document.getElementById(`riskDashboard`).appendChild(riskCard)
 
-    
+
 //-----------------------------------------------------------------//
 //Task 3
     //Resolve button                                                
@@ -49,9 +62,7 @@ function addRiskItem(riskName, riskLevel, department) {
 })
     //Append resolve button
     riskCard.appendChild(resolveButton)
-}
-    //Test Case (Task 3)
-    addRiskItem("Market Fluctuations", "High", "Finance")           
+}          
 //-----------------------------------------------------------------//
 
 
@@ -71,6 +82,11 @@ function addRiskItem(riskName, riskLevel, department) {
     document.getElementById('riskLevel').value = 'Low'
     document.getElementById('department').value = ''
 })
-//Test Case
+//Test Case (Task 2)
 addRiskItem("Data Breach", "High", "IT")
 addRiskItem("Supply Chain Disruption", "Medium", "Operations")
+//Test Case (Task 3)
+addRiskItem("Market Fluctuations", "High", "Finance") 
+//Test Case (Task 4)
+addRiskItem("Cybersecurity Threat", "High", "IT")
+addRiskItem("HR Compliance Issue", "Low", "Human Resources")
