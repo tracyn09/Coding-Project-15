@@ -50,7 +50,15 @@ function addRiskItem(riskName, riskLevel, department) {
     //new card to dashboard
     document.getElementById(`riskDashboard`).appendChild(riskCard)
 
+//-----------------------------------------------------------------//
 
+//Task 6
+    //stopPropagation() in risk card
+riskCard.addEventListener('click', function(event) {
+        event.stopPropagation()
+    })
+
+    
 //-----------------------------------------------------------------//
 //Task 3
     //Resolve button                                                
