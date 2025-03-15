@@ -24,7 +24,7 @@ function addRiskItem(riskName, riskLevel, department) {
     }
 //-----------------------------------------------------------------//
 
-
+//(Task 2 continued)
     //Risk card style
     riskCard.style.padding = "15px"
     riskCard.style.margin = "10px 0"                        
@@ -35,7 +35,7 @@ function addRiskItem(riskName, riskLevel, department) {
     //Adding risk name, level, and department to Risk Card
     const riskNameElement = document.createElement(`h3`)    
     riskNameElement.textContent = riskName
-   
+
     const riskLevelElement = document.createElement(`p`)    
     riskLevelElement.textContent = `Risk Level: ${riskLevel}`
 
@@ -65,7 +65,34 @@ function addRiskItem(riskName, riskLevel, department) {
 }          
 //-----------------------------------------------------------------//
 
+//Task 5
+    //Creating increase risk button
+    const increaseRiskButton = document.createElement('button')
+    increaseRiskButton.textContent = 'Increase Risk Levels'
+    document.getElementById('riskDashboard').appendChild(increaseRiskButton)
 
+    increaseRiskButton.addEventListener('click', function() {
+    const riskCards = document.querySelectorAll('.riskCard')
+
+    //Retrieve risk level input
+    riskCards.forEach(card => {
+        const riskLevelElement = card.querySelector('p')
+    //Retriece current/ updated level
+        let currentLevel = riskLevelElement.textContent.replace('Risk Level: ', '') 
+
+        if (currentLevel === 'Low') {
+            riskLevelElement.textContent = 'Risk Level: Medium'
+            card.style.backgroundColor = 'yellow'
+        } else if (currentLevel === 'Medium') {
+            riskLevelElement.textContent = 'Risk Level: High'
+            card.style.backgroundColor = 'red'
+        }
+    })
+})
+//------------------------------------------------------------------//
+
+
+//(Task 2 continued)
     //Inputting new risk to form
     const riskForm = document.getElementById(`riskForm`)
     riskForm.addEventListener('submit', function(event) {
@@ -82,6 +109,9 @@ function addRiskItem(riskName, riskLevel, department) {
     document.getElementById('riskLevel').value = 'Low'
     document.getElementById('department').value = ''
 })
+
+
+
 //Test Case (Task 2)
 addRiskItem("Data Breach", "High", "IT")
 addRiskItem("Supply Chain Disruption", "Medium", "Operations")
